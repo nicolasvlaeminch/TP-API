@@ -1,0 +1,4 @@
+2024-08-31 05:12:48.984101-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Valor demasiado largo para la columna "NOMBRE CHARACTER VARYING(30)": "'Germanaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa' (46)"
+Value too long for column "NOMBRE CHARACTER VARYING(30)": "'Germanaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa' (46)"; SQL statement:
+insert into empleados (apellido,email,fecha_creacion,fecha_ingreso,fecha_nacimiento,nombre,nro_documento,id) values (?,?,?,?,?,?,?,default) [22001-224]
