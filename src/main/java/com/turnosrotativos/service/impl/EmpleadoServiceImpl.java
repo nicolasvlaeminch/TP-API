@@ -34,50 +34,6 @@ public class EmpleadoServiceImpl implements IEmpleadoService {
             throw new BusinessException("Ya existe un empleado con el email ingresado.", HttpStatus.CONFLICT);
         }
 
-        // Validación de fecha de nacimiento
-        if (!empleadoValidator.esFechaNacimientoValida(empleadoDTO.getFechaNacimiento())) {
-            throw new BusinessException("La fecha de nacimiento no puede ser posterior al día de la fecha.", HttpStatus.BAD_REQUEST);
-        }
-
-        // Validación de fecha de ingreso
-        if (!empleadoValidator.esFechaIngresoValida(empleadoDTO.getFechaIngreso())) {
-            throw new BusinessException("La fecha de ingreso no puede ser posterior al día de la fecha.", HttpStatus.BAD_REQUEST);
-        }
-
-        // Validación de email
-        if (!empleadoValidator.esEmailValido(empleadoDTO.getEmail())) {
-            throw new BusinessException("El email ingresado no es correcto.", HttpStatus.BAD_REQUEST);
-        }
-
-        // Validación de campos obligatorios
-        if (!empleadoValidator.esCampoObligatorio(empleadoDTO.getNombre())) {
-            throw new BusinessException("‘nombre’ es obligatorio.", HttpStatus.BAD_REQUEST);
-        }
-        if (!empleadoValidator.esCampoObligatorio(empleadoDTO.getApellido())) {
-            throw new BusinessException("‘apellido’ es obligatorio.", HttpStatus.BAD_REQUEST);
-        }
-        if (!empleadoValidator.esCampoObligatorio(empleadoDTO.getEmail())) {
-            throw new BusinessException("‘email’ es obligatorio.", HttpStatus.BAD_REQUEST);
-        }
-        if (!empleadoValidator.esCampoObligatorio(empleadoDTO.getNroDocumento())) {
-            throw new BusinessException("‘nroDocumento’ es obligatorio.", HttpStatus.BAD_REQUEST);
-        }
-        if (!empleadoValidator.esCampoObligatorio(empleadoDTO.getFechaNacimiento())) {
-            throw new BusinessException("‘fechaNacimiento’ es obligatoria.", HttpStatus.BAD_REQUEST);
-        }
-        if (!empleadoValidator.esCampoObligatorio(empleadoDTO.getFechaIngreso())) {
-            throw new BusinessException("‘fechaIngreso’ es obligatoria.", HttpStatus.BAD_REQUEST);
-        }
-
-        // Validación de nombre y apellido
-        if (!empleadoValidator.esNombreValido(empleadoDTO.getNombre())) {
-            throw new BusinessException("Solo se permiten letras en el campo ‘nombre’.", HttpStatus.BAD_REQUEST);
-        }
-
-        if (!empleadoValidator.esApellidoValido(empleadoDTO.getApellido())) {
-            throw new BusinessException("Solo se permiten letras en el campo ‘apellido’.", HttpStatus.BAD_REQUEST);
-        }
-
         Empleado empleado = new Empleado();
         empleado.setNroDocumento(empleadoDTO.getNroDocumento());
         empleado.setNombre(empleadoDTO.getNombre());

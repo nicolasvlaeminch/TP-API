@@ -8,5 +8,4 @@ import org.springframework.stereotype.Repository;
 public interface IEmpleadoRepository extends JpaRepository<Empleado, Long> {
     boolean existsByNroDocumento(long nroDocumento);
     boolean existsByEmail(String email);
-
 }
