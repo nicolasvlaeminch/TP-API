@@ -3,26 +3,45 @@ package com.turnosrotativos.controller;
 import com.turnosrotativos.dto.EmpleadoDTO;
 import com.turnosrotativos.service.IEmpleadoService;
 import jakarta.validation.Valid;
-import lombok.Data;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.net.URI;
-import java.time.LocalDate;
+import java.util.List;
 
 @RestController
-//@RequestMapping("/api/v1")
+@RequestMapping("/empleado")
 public class EmpleadoController {
-
     @Autowired
     private IEmpleadoService empleadoService;
 
-    @RequestMapping(value = "/empleado", method = RequestMethod.POST)
+    @PostMapping
     public ResponseEntity<EmpleadoDTO> registrarEmpleado(@Valid @RequestBody EmpleadoDTO empleadoDTO) {
 
         EmpleadoDTO nuevoEmpleadoDTO = empleadoService.registrarEmpleado(empleadoDTO);
         return ResponseEntity.created(URI.create("/empleado/" + nuevoEmpleadoDTO.getId())).body(nuevoEmpleadoDTO);
     }
 
+    @GetMapping
+    public ResponseEntity<List<EmpleadoDTO>> obtenerEmpleados() {
+        List<EmpleadoDTO> empleadosDTO = empleadoService.obtenerEmpleados();
+        return ResponseEntity.ok(empleadosDTO);
+    }
+
+    @GetMapping("/{empleadoId}")
+    public ResponseEntity<EmpleadoDTO> obtenerEmpleadoPorId(@PathVariable Long empleadoId) {
+        EmpleadoDTO empleadoDTO = empleadoService.obtenerEmpleadoPorId(empleadoId);
+
+        return ResponseEntity.ok(empleadoDTO);
+    }
+
+    @PutMapping("/{empleadoId}")
+    public ResponseEntity<EmpleadoDTO> actualizarEmpleado(
+            @PathVariable Long empleadoId,
+            @Valid @RequestBody EmpleadoDTO empleadoDTO) {
+
+        EmpleadoDTO empleadoActualizadoDTO = empleadoService.actualizarEmpleado(empleadoId, empleadoDTO);
+        return ResponseEntity.ok(empleadoActualizadoDTO);
+    }
 }

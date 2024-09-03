@@ -279,3 +279,15 @@ Caused by: org.h2.mvstore.MVStoreException: The file is locked: C:/Users/Nicolas
 	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:81)
 	at org.h2.mvstore.MVStore.<init>(MVStore.java:286)
 	... 64 more
+2024-09-02 19:07:58.022053-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "CONCEPTO_LABORAL" not found (this database is empty); SQL statement:
+INSERT INTO concepto_laboral (id, hs_maximo, hs_minimo, laborable, nombre) VALUES (1, 8, 6, true, 'Turno Normal') [42104-224]
+2024-09-02 19:11:34.685537-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "CONCEPTO_LABORAL" not found (this database is empty); SQL statement:
+INSERT INTO concepto_laboral (id, hs_maximo, hs_minimo, laborable, nombre) VALUES (1, 8, 6, true, 'Turno Normal') [42104-224]
+2024-09-02 19:14:39.462862-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "CONCEPTO_LABORAL" not found (this database is empty); SQL statement:
+INSERT INTO concepto_laboral (id, hs_maximo, hs_minimo, laborable, nombre) VALUES (1, 8, 6, true, 'Turno Normal') [42104-224]
+2024-09-02 19:18:39.194303-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "CONCEPTO_LABORAL" not found (this database is empty); SQL statement:
+INSERT INTO concepto_laboral (id, hs_maximo, hs_minimo, laborable, nombre) VALUES (1, 8, 6, true, 'Turno Normal') [42104-224]
