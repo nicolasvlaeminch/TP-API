@@ -7,6 +7,6 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface IConceptoLaboralRepository extends JpaRepository<ConceptoLaboral, Integer> {
+public interface IConceptoLaboralRepository extends JpaRepository<ConceptoLaboral, Long> {
     List<ConceptoLaboral> findByNombreContaining(String nombre);
 }

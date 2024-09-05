@@ -23,7 +23,7 @@ public class EmpleadoServiceImpl implements IEmpleadoService {
     private IEmpleadoValidationService empleadoValidationService;
 
     public EmpleadoDTO registrarEmpleado(EmpleadoDTO empleadoDTO) {
-        empleadoValidationService.validarEmpleado(empleadoDTO);
+        empleadoValidationService.validarRegistrarEmpleado(empleadoDTO);
 
         Empleado empleado = new Empleado();
         empleado.setNroDocumento(empleadoDTO.getNroDocumento());
@@ -53,12 +53,25 @@ public class EmpleadoServiceImpl implements IEmpleadoService {
 
     @Override
     public EmpleadoDTO actualizarEmpleado(Long empleadoId, EmpleadoDTO empleadoDTO) {
+        empleadoValidationService.validarActualizarEmpleado(empleadoDTO);
+
         // Recuperar el empleado existente
         Empleado empleadoExistente = empleadoRepository.findById(empleadoId)
                 .orElseThrow(() -> new BusinessException("Empleado no encontrado con ID: " + empleadoId, HttpStatus.NOT_FOUND));
 
-        // Validar datos actualizados (solo si cambian)
-        empleadoValidationService.validarEmpleado(empleadoDTO);
+        if (!empleadoExistente.getNroDocumento().equals(empleadoDTO.getNroDocumento())) {
+            boolean existeOtroEmpleado = empleadoRepository.existsByNroDocumento(empleadoDTO.getNroDocumento());
+            if (existeOtroEmpleado) {
+                throw new BusinessException("Ya existe un empleado con el número de documento: " + empleadoDTO.getNroDocumento(), HttpStatus.BAD_REQUEST);
+            }
+        }
+
+        if (!empleadoExistente.getEmail().equals(empleadoDTO.getEmail())) {
+            boolean existeOtroEmpleadoConEmail = empleadoRepository.existsByEmail(empleadoDTO.getEmail());
+            if (existeOtroEmpleadoConEmail) {
+                throw new BusinessException("Ya existe un empleado con el email: " + empleadoDTO.getEmail(), HttpStatus.BAD_REQUEST);
+            }
+        }
 
         // Actualizar los campos del empleado
         empleadoExistente.setNroDocumento(empleadoDTO.getNroDocumento());

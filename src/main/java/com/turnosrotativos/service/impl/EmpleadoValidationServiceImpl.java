@@ -17,10 +17,15 @@ public class EmpleadoValidationServiceImpl implements IEmpleadoValidationService
     private IEmpleadoRepository empleadoRepository;
 
     @Override
-    public void validarEmpleado(EmpleadoDTO empleadoDTO) {
+    public void validarRegistrarEmpleado(EmpleadoDTO empleadoDTO) {
         validarEdad(empleadoDTO.getFechaNacimiento());
         validarNumeroDocumento(empleadoDTO.getNroDocumento());
         validarEmail(empleadoDTO.getEmail());
+    }
+
+    @Override
+    public void validarActualizarEmpleado(EmpleadoDTO empleadoDTO) {
+        validarEdad(empleadoDTO.getFechaNacimiento());
     }
 
     private void validarEdad(LocalDate fechaNacimiento) {

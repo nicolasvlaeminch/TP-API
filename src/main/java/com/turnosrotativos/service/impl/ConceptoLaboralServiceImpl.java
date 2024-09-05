@@ -14,7 +14,7 @@ public class ConceptoLaboralServiceImpl implements IConceptoLaboralService {
     private IConceptoLaboralRepository conceptoLaboralRepository;
 
     @Override
-    public List<ConceptoLaboral> obtenerConceptosLaborales(Integer id, String nombre) {
+    public List<ConceptoLaboral> obtenerConceptosLaborales(Long id, String nombre) {
         if (id != null && nombre != null) {
             return conceptoLaboralRepository.findAll().stream()
                     .filter(c -> c.getId().equals(id) && c.getNombre().contains(nombre))

@@ -1,9 +1,6 @@
 package com.turnosrotativos.dto;
 
-import jakarta.validation.constraints.Email;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Past;
+import jakarta.validation.constraints.*;
 import lombok.Data;
 
 import java.time.LocalDate;
@@ -14,8 +11,10 @@ public class EmpleadoDTO {
     @NotNull(message = "Es necesario ingresar su DNI")
     private Long nroDocumento;
     @NotBlank(message = "Es necesario ingresar su nombre")
+    @Pattern(regexp = "^[A-Za-z]+$", message = "Solo se permiten letras en el campo ‘nombre’.")
     private String nombre;
     @NotBlank(message = "Es necesario ingresar su apellido")
+    @Pattern(regexp = "^[A-Za-z]+$", message = "Solo se permiten letras en el campo ‘apellido’.")
     private String apellido;
     @NotBlank(message = "Es necesario ingresar su Email")
     @Email(message = "“El email ingresado no es correcto.”")
