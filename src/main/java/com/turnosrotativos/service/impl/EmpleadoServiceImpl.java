@@ -5,7 +5,7 @@ import com.turnosrotativos.entity.Empleado;
 import com.turnosrotativos.exceptions.BusinessException;
 import com.turnosrotativos.repository.IEmpleadoRepository;
 import com.turnosrotativos.service.IEmpleadoService;
-import com.turnosrotativos.service.IEmpleadoValidationService;
+import com.turnosrotativos.validator.EmpleadoValidator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
@@ -20,10 +20,10 @@ public class EmpleadoServiceImpl implements IEmpleadoService {
     private IEmpleadoRepository empleadoRepository;
 
     @Autowired
-    private IEmpleadoValidationService empleadoValidationService;
+    private EmpleadoValidator empleadoValidator;
 
     public EmpleadoDTO registrarEmpleado(EmpleadoDTO empleadoDTO) {
-        empleadoValidationService.validarRegistrarEmpleado(empleadoDTO);
+        empleadoValidator.validarRegistrarEmpleado(empleadoDTO);
 
         Empleado empleado = new Empleado();
         empleado.setNroDocumento(empleadoDTO.getNroDocumento());
@@ -46,14 +46,14 @@ public class EmpleadoServiceImpl implements IEmpleadoService {
     }
 
     public EmpleadoDTO obtenerEmpleadoPorId(Long empleadoId) {
-        empleadoValidationService.validarEmpleadoPorId(empleadoId);
+        empleadoValidator.validarEmpleadoPorId(empleadoId);
 
         return empleadoRepository.findById(empleadoId).map(this::convertToDTO).orElse(null);
     }
 
     @Override
     public EmpleadoDTO actualizarEmpleado(Long empleadoId, EmpleadoDTO empleadoDTO) {
-        empleadoValidationService.validarActualizarEmpleado(empleadoDTO);
+        empleadoValidator.validarActualizarEmpleado(empleadoDTO);
 
         // Recuperar el empleado existente
         Empleado empleadoExistente = empleadoRepository.findById(empleadoId)

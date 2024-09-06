@@ -1,29 +1,26 @@
-package com.turnosrotativos.service.impl;
+package com.turnosrotativos.validator;
 
 import com.turnosrotativos.dto.EmpleadoDTO;
 import com.turnosrotativos.exceptions.BusinessException;
 import com.turnosrotativos.repository.IEmpleadoRepository;
-import com.turnosrotativos.service.IEmpleadoValidationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Component;
 
 import java.time.LocalDate;
 import java.time.Period;
 
-@Service
-public class EmpleadoValidationServiceImpl implements IEmpleadoValidationService {
+@Component
+public class EmpleadoValidator {
     @Autowired
     private IEmpleadoRepository empleadoRepository;
 
-    @Override
     public void validarRegistrarEmpleado(EmpleadoDTO empleadoDTO) {
         validarEdad(empleadoDTO.getFechaNacimiento());
         validarNumeroDocumento(empleadoDTO.getNroDocumento());
         validarEmail(empleadoDTO.getEmail());
     }
 
-    @Override
     public void validarActualizarEmpleado(EmpleadoDTO empleadoDTO) {
         validarEdad(empleadoDTO.getFechaNacimiento());
     }

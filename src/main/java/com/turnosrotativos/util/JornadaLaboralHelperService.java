@@ -28,4 +28,9 @@ public class JornadaLaboralHelperService {
         return conceptoLaboralRepository.findById(idConcepto)
                 .orElseThrow(() -> new BusinessException("No existe el concepto ingresado.", HttpStatus.NOT_FOUND));
     }
+
+    public Empleado getEmpleadoByNroDocumento(Long nroDocumento) {
+        return empleadoRepository.findByNroDocumento(nroDocumento)
+                .orElseThrow(() -> new BusinessException("No existe el empleado con el número de documento ingresado.", HttpStatus.NOT_FOUND));
+    }
 }

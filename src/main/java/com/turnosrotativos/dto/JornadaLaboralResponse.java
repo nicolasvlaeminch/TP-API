@@ -5,7 +5,7 @@ import lombok.Data;
 import java.time.LocalDate;
 
 @Data
-public class JornadaLaboralResponseDTO {
+public class JornadaLaboralResponse {
     private Long id;
     private Long nroDocumento;
     private String nombreCompleto;

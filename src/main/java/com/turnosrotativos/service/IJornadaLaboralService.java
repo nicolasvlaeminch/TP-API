@@ -1,8 +1,12 @@
 package com.turnosrotativos.service;
 
 import com.turnosrotativos.dto.JornadaLaboralDTO;
-import com.turnosrotativos.dto.JornadaLaboralResponseDTO;
+import com.turnosrotativos.dto.JornadaLaboralResponse;
+
+import java.time.LocalDate;
+import java.util.List;
 
 public interface IJornadaLaboralService {
-    JornadaLaboralResponseDTO crearJornadaLaboral(JornadaLaboralDTO jornadaDTO);
+    JornadaLaboralResponse crearJornadaLaboral(JornadaLaboralDTO jornadaDTO);
+    List<JornadaLaboralResponse> obtenerJornadasLaborales(Long nroDocumento, LocalDate fechaDesde, LocalDate fechaHasta);
 }
