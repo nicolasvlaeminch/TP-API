@@ -4,6 +4,7 @@ import com.turnosrotativos.dto.EmpleadoDTO;
 import com.turnosrotativos.entity.Empleado;
 import com.turnosrotativos.exceptions.BusinessException;
 import com.turnosrotativos.repository.IEmpleadoRepository;
+import com.turnosrotativos.repository.IJornadaLaboralRepository;
 import com.turnosrotativos.service.IEmpleadoService;
 import com.turnosrotativos.validator.EmpleadoValidator;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,6 +22,9 @@ public class EmpleadoServiceImpl implements IEmpleadoService {
 
     @Autowired
     private EmpleadoValidator empleadoValidator;
+
+    @Autowired
+    private IJornadaLaboralRepository jornadaLaboralRepository;
 
     public EmpleadoDTO registrarEmpleado(EmpleadoDTO empleadoDTO) {
         empleadoValidator.validarRegistrarEmpleado(empleadoDTO);
@@ -85,6 +89,21 @@ public class EmpleadoServiceImpl implements IEmpleadoService {
         Empleado empleadoActualizado = empleadoRepository.save(empleadoExistente);
 
         return convertToDTO(empleadoActualizado);
+    }
+
+    @Override
+    public void eliminarEmpleadoPorId(Long empleadoId) {
+        // Verificar si el empleado existe
+        var empleado = empleadoRepository.findById(empleadoId)
+                .orElseThrow(() -> new BusinessException("No se encontró el empleado con Id: " + empleadoId, HttpStatus.NOT_FOUND));
+
+        // Verificar si el empleado tiene jornadas laborales asociadas
+        if (jornadaLaboralRepository.existsByEmpleadoId(empleadoId)) {
+            throw new BusinessException("No es posible eliminar un empleado con jornadas asociadas.", HttpStatus.BAD_REQUEST);
+        }
+
+        // Eliminar el empleado
+        empleadoRepository.delete(empleado);
     }
 
     private EmpleadoDTO convertToDTO(Empleado empleado) {

@@ -9,4 +9,5 @@ public interface IEmpleadoService {
     List<EmpleadoDTO> obtenerEmpleados();
     EmpleadoDTO obtenerEmpleadoPorId(Long empleadoId);
     EmpleadoDTO actualizarEmpleado(Long empleadoId, EmpleadoDTO empleadoDTO);
+    void eliminarEmpleadoPorId(Long empleadoId);
 }

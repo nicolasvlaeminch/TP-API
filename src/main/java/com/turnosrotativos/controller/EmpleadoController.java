@@ -44,4 +44,11 @@ public class EmpleadoController {
         EmpleadoDTO empleadoActualizadoDTO = empleadoService.actualizarEmpleado(empleadoId, empleadoDTO);
         return ResponseEntity.ok(empleadoActualizadoDTO);
     }
+
+    @DeleteMapping("/{empleadoId}")
+    public ResponseEntity<Void> eliminarEmpleado(@PathVariable Long empleadoId) {
+        empleadoService.eliminarEmpleadoPorId(empleadoId);
+        return ResponseEntity.noContent().build();  // Retorna 204 NO CONTENT si se elimina correctamente
+    }
+
 }

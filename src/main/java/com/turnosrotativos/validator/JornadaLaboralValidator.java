@@ -224,7 +224,7 @@ public class JornadaLaboralValidator {
                 .stream().filter(jornada -> "Día Libre".equals(jornada.getConcepto().getNombre())).count();
 
         // Verificar si el total de días libres supera el límite permitido
-        if (diasLibresDelMes > 6) {
+        if (diasLibresDelMes > 4) {
             throw new BusinessException("El empleado no cuenta con más días libres este mes.", HttpStatus.BAD_REQUEST);
         }
     }

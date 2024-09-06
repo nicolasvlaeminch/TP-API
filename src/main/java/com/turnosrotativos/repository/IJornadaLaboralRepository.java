@@ -25,4 +25,6 @@ public interface IJornadaLaboralRepository extends JpaRepository<JornadaLaboral,
 
     List<JornadaLaboral> findByEmpleadoIdAndFechaGreaterThanEqual(Long empleadoId, LocalDate fechaDesde);
     List<JornadaLaboral> findByEmpleadoId(Long empleadoId);
+
+    boolean existsByEmpleadoId(Long empleadoId);
 }
