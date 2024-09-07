@@ -27,12 +27,8 @@ public class JornadaLaboralController {
 
     @GetMapping
     public ResponseEntity<List<JornadaLaboralResponse>> obtenerJornadasLaborales(@Valid JornadaLaboralRequest jornadaLaboralRequest) {
-
-        Long nroDocumento = (jornadaLaboralRequest.getNroDocumento() != null) ? Long.parseLong(jornadaLaboralRequest.getNroDocumento()) : null;
-        LocalDate fechaDesde = (jornadaLaboralRequest.getFechaDesde() != null) ? LocalDate.parse(jornadaLaboralRequest.getFechaDesde()) : null;
-        LocalDate fechaHasta = (jornadaLaboralRequest.getFechaHasta() != null) ? LocalDate.parse(jornadaLaboralRequest.getFechaHasta()) : null;
-
-        List<JornadaLaboralResponse> jornadas = jornadaLaboralService.obtenerJornadasLaborales(nroDocumento, fechaDesde, fechaHasta);
+        List<JornadaLaboralResponse> jornadas = jornadaLaboralService.obtenerJornadasLaborales(
+                jornadaLaboralRequest.getNroDocumento(), jornadaLaboralRequest.getFechaDesde(), jornadaLaboralRequest.getFechaHasta());
         return ResponseEntity.ok(jornadas);
     }
 }

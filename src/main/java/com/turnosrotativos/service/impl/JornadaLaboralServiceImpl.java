@@ -49,48 +49,38 @@ public class JornadaLaboralServiceImpl implements IJornadaLaboralService {
     }
 
     @Override
-    public List<JornadaLaboralResponse> obtenerJornadasLaborales(Long nroDocumento, LocalDate fechaDesde, LocalDate fechaHasta) {
+    public List<JornadaLaboralResponse> obtenerJornadasLaborales(String nroDocumentoStr, String fechaDesdeStr, String fechaHastaStr) {
+        Long nroDocumento = (nroDocumentoStr != null) ? Long.parseLong(nroDocumentoStr) : null;
+        LocalDate fechaDesde = (fechaDesdeStr != null) ? LocalDate.parse(fechaDesdeStr) : null;
+        LocalDate fechaHasta = (fechaHastaStr != null) ? LocalDate.parse(fechaHastaStr) : null;
+
         jornadaLaboralValidator.validarParametros(fechaDesde, fechaHasta);
         List<JornadaLaboral> jornadas;
 
-        // Si se proporciona un número de documento
         if (nroDocumento != null) {
-            // Obtén el ID del empleado basado en el número de documento
             Long empleadoId = jornadaLaboralHelperService.getEmpleadoByNroDocumento(nroDocumento).getId();
 
-            // Filtra las jornadas basadas en el ID del empleado y las fechas proporcionadas (si están presentes)
             if (fechaDesde != null && fechaHasta != null) {
-                // Busca jornadas del empleado dentro del rango de fechas especificado
                 jornadas = jornadaLaboralRepository.findByEmpleadoIdAndFechaBetween(empleadoId, fechaDesde, fechaHasta);
             } else if (fechaDesde != null) {
-                // Busca jornadas del empleado a partir de la fecha desde
                 jornadas = jornadaLaboralRepository.findByEmpleadoIdAndFechaGreaterThanEqual(empleadoId, fechaDesde);
             } else if (fechaHasta != null) {
-                // Busca jornadas del empleado hasta la fecha hasta
                 jornadas = jornadaLaboralRepository.findByEmpleadoIdAndFechaLessThanEqual(empleadoId, fechaHasta);
             } else {
-                // Si no se proporcionan fechas, busca todas las jornadas del empleado
                 jornadas = jornadaLaboralRepository.findByEmpleadoId(empleadoId);
             }
         } else if (fechaDesde != null && fechaHasta != null) {
-            // Si no se proporciona número de documento pero se proporcionan fechas, busca todas las jornadas dentro del rango de fechas
             jornadas = jornadaLaboralRepository.findByFechaBetween(fechaDesde, fechaHasta);
         } else if (fechaDesde != null) {
-            // Si no se proporciona número de documento pero se proporciona fecha desde, busca todas las jornadas a partir de la fecha desde
             jornadas = jornadaLaboralRepository.findByFechaGreaterThanEqual(fechaDesde);
         } else if (fechaHasta != null) {
-            // Si no se proporciona número de documento pero se proporciona fecha hasta, busca todas las jornadas hasta la fecha hasta
             jornadas = jornadaLaboralRepository.findByFechaLessThanEqual(fechaHasta);
         } else {
-            // Si no se proporciona ni número de documento ni fechas, busca todas las jornadas
             jornadas = jornadaLaboralRepository.findAll();
         }
-
-        // Convierte la lista de jornadas a una lista de DTOs y la retorna
         return jornadas.stream().map(this::convertToResponseDTO).collect(Collectors.toList());
     }
 
-    // Método para convertir la entidad JornadaLaboral a DTO de respuesta
     private JornadaLaboralResponse convertToResponseDTO(JornadaLaboral jornada) {
         JornadaLaboralResponse responseDTO = new JornadaLaboralResponse();
         responseDTO.setId(jornada.getId());

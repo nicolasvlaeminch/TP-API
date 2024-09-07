@@ -14,5 +14,5 @@ public class ConceptoLaboralResponse {
 
     private Integer hsMaximo;
 
-    private boolean laborable;
+    private Boolean laborable;
 }

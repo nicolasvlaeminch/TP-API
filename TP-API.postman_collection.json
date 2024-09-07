@@ -1,0 +1,1807 @@
+{
+	"info": {
+		"_postman_id": "7b5ea65c-795c-4e52-b627-e4d92311d319",
+		"name": "TP-API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "36794644"
+	},
+	"item": [
+		{
+			"name": "Registrar empleado",
+			"item": [
+				{
+					"name": "Registrar empleado 1.",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nroDocumento\": 30415654,\r\n  \"nombre\": \"German\",\r\n  \"apellido\": \"Zotella\",\r\n  \"email\": \"gzotella@gmail.com\",\r\n  \"fechaNacimiento\": \"1998-08-06\",\r\n  \"fechaIngreso\": \"2019-06-04\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/empleado",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"empleado"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Registrar empleado 2.",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nroDocumento\": 41515654,\r\n  \"nombre\": \"Juan\",\r\n  \"apellido\": \"Gonzalez\",\r\n  \"email\": \"juanitotulocura@gmail.com\",\r\n  \"fechaNacimiento\": \"1997-11-20\",\r\n  \"fechaIngreso\": \"2023-06-04\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/empleado",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"empleado"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Registrar empleado 3.",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nroDocumento\": 41555224,\r\n  \"nombre\": \"Maria Elena\",\r\n  \"apellido\": \"Martinez\",\r\n  \"email\": \"marimartinez20@gmail.com\",\r\n  \"fechaNacimiento\": \"1998-11-20\",\r\n  \"fechaIngreso\": \"2024-06-04\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/empleado",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"empleado"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ERROR: Menor de edad.",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nroDocumento\": 32415654,\r\n  \"nombre\": \"Juan\",\r\n  \"apellido\": \"Gonzalez\",\r\n  \"email\": \"juanitotulocura@gmail.com\",\r\n  \"fechaNacimiento\": \"2010-11-20\",\r\n  \"fechaIngreso\": \"2023-06-04\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/empleado",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"empleado"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ERROR: Documento existente.",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nroDocumento\": 41515654,\r\n  \"nombre\": \"Juan\",\r\n  \"apellido\": \"Gonzalez\",\r\n  \"email\": \"juanitotulocura2@gmail.com\",\r\n  \"fechaNacimiento\": \"1997-11-20\",\r\n  \"fechaIngreso\": \"2023-06-04\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/empleado",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"empleado"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ERROR: Email existente.",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nroDocumento\": 46515654,\r\n  \"nombre\": \"Juan\",\r\n  \"apellido\": \"Gonzalez\",\r\n  \"email\": \"juanitotulocura@gmail.com\",\r\n  \"fechaNacimiento\": \"1997-11-20\",\r\n  \"fechaIngreso\": \"2023-06-04\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/empleado",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"empleado"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ERROR: Fecha de ingreso posterior al dia de la fecha.",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nroDocumento\": 47515654,\r\n  \"nombre\": \"Juan\",\r\n  \"apellido\": \"Gonzalez\",\r\n  \"email\": \"juanitotulocura6@gmail.com\",\r\n  \"fechaNacimiento\": \"1997-11-20\",\r\n  \"fechaIngreso\": \"2025-06-04\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/empleado",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"empleado"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ERROR: Fecha de nacimiento posterior al dia de la fecha.",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nroDocumento\": 24515654,\r\n  \"nombre\": \"Juan\",\r\n  \"apellido\": \"Gonzalez\",\r\n  \"email\": \"juanitotulocura6@gmail.com\",\r\n  \"fechaNacimiento\": \"2025-11-20\",\r\n  \"fechaIngreso\": \"2021-06-04\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/empleado",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"empleado"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ERROR: Email incorrecto.",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nroDocumento\": 25515654,\r\n  \"nombre\": \"Juan\",\r\n  \"apellido\": \"Gonzalez\",\r\n  \"email\": \"juanitot111gmail.com\",\r\n  \"fechaNacimiento\": \"1997-11-20\",\r\n  \"fechaIngreso\": \"2021-06-04\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/empleado",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"empleado"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ERROR: Nombre incorrecto.",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nroDocumento\": 25515654,\r\n  \"nombre\": \"Jua11n\",\r\n  \"apellido\": \"Gonzalez\",\r\n  \"email\": \"juanitot111@gmail.com\",\r\n  \"fechaNacimiento\": \"1997-11-20\",\r\n  \"fechaIngreso\": \"2021-06-04\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/empleado",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"empleado"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ERROR: Apellido incorrecto.",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nroDocumento\": 25515654,\r\n  \"nombre\": \"Juan\",\r\n  \"apellido\": \"Gonzale11z\",\r\n  \"email\": \"juanitot111@gmail.com\",\r\n  \"fechaNacimiento\": \"1997-11-20\",\r\n  \"fechaIngreso\": \"2021-06-04\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/empleado",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"empleado"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ERROR: Documento obligatorio.",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nombre\": \"Juan\",\r\n  \"apellido\": \"Gonzalez\",\r\n  \"email\": \"juanitot111@gmail.com\",\r\n  \"fechaNacimiento\": \"1997-11-20\",\r\n  \"fechaIngreso\": \"2021-06-04\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/empleado",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"empleado"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ERROR: Nombre obligatorio.",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nroDocumento\": 25515654,\r\n  \"apellido\": \"Gonzalez\",\r\n  \"email\": \"juanitot111@gmail.com\",\r\n  \"fechaNacimiento\": \"1997-11-20\",\r\n  \"fechaIngreso\": \"2021-06-04\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/empleado",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"empleado"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ERROR: Apellido obligatorio.",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nroDocumento\": 25515654,\r\n  \"nombre\": \"Juan\",\r\n  \"email\": \"juanitot111@gmail.com\",\r\n  \"fechaNacimiento\": \"1997-11-20\",\r\n  \"fechaIngreso\": \"2021-06-04\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/empleado",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"empleado"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ERROR: Email obligatorio.",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nroDocumento\": 25515654,\r\n  \"nombre\": \"Juan\",\r\n  \"apellido\": \"Gonzalez\",\r\n  \"fechaNacimiento\": \"1997-11-20\",\r\n  \"fechaIngreso\": \"2021-06-04\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/empleado",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"empleado"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ERROR: Fecha nacimiento obligatorio.",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nroDocumento\": 25515654,\r\n  \"nombre\": \"Juan\",\r\n  \"apellido\": \"Gonzalez\",\r\n  \"email\": \"juanitot111@gmail.com\",\r\n  \"fechaIngreso\": \"2021-06-04\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/empleado",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"empleado"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ERROR: Fecha ingreso obligatorio.",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nroDocumento\": 25515654,\r\n  \"nombre\": \"Juan\",\r\n  \"apellido\": \"Gonzalez\",\r\n  \"email\": \"juanitot111@gmail.com\",\r\n  \"fechaNacimiento\": \"1997-11-20\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/empleado",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"empleado"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Obtener empleados",
+			"item": [
+				{
+					"name": "Obtener lista de empleados.",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/empleado",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"empleado"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener empleado por ID.",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/empleado/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"empleado",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ERROR: Empleado no encontrado.",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/empleado/20",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"empleado",
+								"20"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Actualizar empleado",
+			"item": [
+				{
+					"name": "Actualizar empleado.",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nroDocumento\": 41515654,\r\n  \"nombre\": \"Juan\",\r\n  \"apellido\": \"Gonsales\",\r\n  \"email\": \"juanitotulocura2024@gmail.com\",\r\n  \"fechaNacimiento\": \"1997-11-20\",\r\n  \"fechaIngreso\": \"2023-06-04\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/empleado/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"empleado",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ERROR: Empleado no encontrado.",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nroDocumento\": 41515654,\r\n  \"nombre\": \"Juan\",\r\n  \"apellido\": \"Gonsales\",\r\n  \"email\": \"juanitotulocura2024@gmail.com\",\r\n  \"fechaNacimiento\": \"1997-11-20\",\r\n  \"fechaIngreso\": \"2023-06-04\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/empleado/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"empleado",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ERROR: Menor de edad.",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nroDocumento\": 32415654,\r\n  \"nombre\": \"Juan\",\r\n  \"apellido\": \"Gonzalez\",\r\n  \"email\": \"juanitotulocura@gmail.com\",\r\n  \"fechaNacimiento\": \"2010-11-20\",\r\n  \"fechaIngreso\": \"2023-06-04\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/empleado/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"empleado",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ERROR: Documento existente.",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nroDocumento\": 30415654,\r\n  \"nombre\": \"Juan\",\r\n  \"apellido\": \"Gonzalez\",\r\n  \"email\": \"juanitotulocura2@gmail.com\",\r\n  \"fechaNacimiento\": \"1997-11-20\",\r\n  \"fechaIngreso\": \"2023-06-04\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/empleado/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"empleado",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ERROR: Email existente.",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nroDocumento\": 46515654,\r\n  \"nombre\": \"Juan\",\r\n  \"apellido\": \"Gonzalez\",\r\n  \"email\": \"gzotella@gmail.com\",\r\n  \"fechaNacimiento\": \"1997-11-20\",\r\n  \"fechaIngreso\": \"2023-06-04\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/empleado/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"empleado",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ERROR: Fecha de ingreso posterior al dia de la fecha.",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nroDocumento\": 47515654,\r\n  \"nombre\": \"Juan\",\r\n  \"apellido\": \"Gonzalez\",\r\n  \"email\": \"juanitotulocura6@gmail.com\",\r\n  \"fechaNacimiento\": \"1997-11-20\",\r\n  \"fechaIngreso\": \"2025-06-04\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/empleado/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"empleado",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ERROR: Fecha de nacimiento posterior al dia de la fecha.",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nroDocumento\": 24515654,\r\n  \"nombre\": \"Juan\",\r\n  \"apellido\": \"Gonzalez\",\r\n  \"email\": \"juanitotulocura6@gmail.com\",\r\n  \"fechaNacimiento\": \"2025-11-20\",\r\n  \"fechaIngreso\": \"2021-06-04\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/empleado/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"empleado",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ERROR: Email incorrecto.",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nroDocumento\": 25515654,\r\n  \"nombre\": \"Juan\",\r\n  \"apellido\": \"Gonzalez\",\r\n  \"email\": \"juanitot111gmail.com\",\r\n  \"fechaNacimiento\": \"1997-11-20\",\r\n  \"fechaIngreso\": \"2021-06-04\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/empleado/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"empleado",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ERROR: Nombre incorrecto.",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nroDocumento\": 25515654,\r\n  \"nombre\": \"Jua11n\",\r\n  \"apellido\": \"Gonzalez\",\r\n  \"email\": \"juanitot111@gmail.com\",\r\n  \"fechaNacimiento\": \"1997-11-20\",\r\n  \"fechaIngreso\": \"2021-06-04\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/empleado/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"empleado",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ERROR: Apellido incorrecto.",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nroDocumento\": 25515654,\r\n  \"nombre\": \"Juan\",\r\n  \"apellido\": \"Gonzale11z\",\r\n  \"email\": \"juanitot111@gmail.com\",\r\n  \"fechaNacimiento\": \"1997-11-20\",\r\n  \"fechaIngreso\": \"2021-06-04\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/empleado/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"empleado",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ERROR: Documento obligatorio.",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nombre\": \"Juan\",\r\n  \"apellido\": \"Gonzalez\",\r\n  \"email\": \"juanitot111@gmail.com\",\r\n  \"fechaNacimiento\": \"1997-11-20\",\r\n  \"fechaIngreso\": \"2021-06-04\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/empleado/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"empleado",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ERROR: Nombre obligatorio.",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nroDocumento\": 25515654,\r\n  \"apellido\": \"Gonzalez\",\r\n  \"email\": \"juanitot111@gmail.com\",\r\n  \"fechaNacimiento\": \"1997-11-20\",\r\n  \"fechaIngreso\": \"2021-06-04\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/empleado/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"empleado",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ERROR: Apellido obligatorio.",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nroDocumento\": 25515654,\r\n  \"nombre\": \"Juan\",\r\n  \"email\": \"juanitot111@gmail.com\",\r\n  \"fechaNacimiento\": \"1997-11-20\",\r\n  \"fechaIngreso\": \"2021-06-04\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/empleado/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"empleado",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ERROR: Email obligatorio.",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nroDocumento\": 25515654,\r\n  \"nombre\": \"Juan\",\r\n  \"apellido\": \"Gonzalez\",\r\n  \"fechaNacimiento\": \"1997-11-20\",\r\n  \"fechaIngreso\": \"2021-06-04\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/empleado/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"empleado",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ERROR: Fecha nacimiento obligatorio.",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nroDocumento\": 25515654,\r\n  \"nombre\": \"Juan\",\r\n  \"apellido\": \"Gonzalez\",\r\n  \"email\": \"juanitot111@gmail.com\",\r\n  \"fechaIngreso\": \"2021-06-04\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/empleado/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"empleado",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ERROR: Fecha ingreso obligatorio.",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nroDocumento\": 25515654,\r\n  \"nombre\": \"Juan\",\r\n  \"apellido\": \"Gonzalez\",\r\n  \"email\": \"juanitot111@gmail.com\",\r\n  \"fechaNacimiento\": \"1997-11-20\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/empleado/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"empleado",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Obtener conceptos laborales",
+			"item": [
+				{
+					"name": "Obtener lista de conceptos laborales.",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/concepto",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"concepto"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener concepto laboral por Id.",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/concepto",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"concepto"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener concepto laboral por nombre.",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/concepto?nombre=Turno",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"concepto"
+							],
+							"query": [
+								{
+									"key": "nombre",
+									"value": "Turno"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener concepto laboral por Id y nombre.",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/concepto?id=1&nombre=Turno",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"concepto"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "1"
+								},
+								{
+									"key": "nombre",
+									"value": "Turno"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener concepto laboral por Id y nombre inexistentes.",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/concepto?id=22&nombre=Hola",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"concepto"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "22"
+								},
+								{
+									"key": "nombre",
+									"value": "Hola"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Crear jornada laboral",
+			"item": [
+				{
+					"name": "Crear jornada laboral turno normal.",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"idEmpleado\": 1,\r\n  \"idConcepto\": 1,\r\n  \"fecha\": \"2023-01-01\",\r\n  \"horasTrabajadas\": 8\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/jornada",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"jornada"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Crear jornada laboral turno extra.",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"idEmpleado\": 1,\r\n  \"idConcepto\": 2,\r\n  \"fecha\": \"2023-01-01\",\r\n  \"horasTrabajadas\": 6\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/jornada",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"jornada"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ERROR: Id empleado obligatorio.",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"idConcepto\": 1,\r\n  \"fecha\": \"2023-01-01\",\r\n  \"horasTrabajadas\": 8\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/jornada",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"jornada"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ERROR: Id concepto laboral obligatorio.",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"idEmpleado\": 1,\r\n  \"fecha\": \"2023-01-01\",\r\n  \"horasTrabajadas\": 8\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/jornada",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"jornada"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ERROR: Fecha obligatoria.",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"idEmpleado\": 1,\r\n  \"idConcepto\": 1,\r\n  \"horasTrabajadas\": 8\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/jornada",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"jornada"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ERROR: Horas trabajadas obligatorias en turno normal.",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"idEmpleado\": 1,\r\n  \"idConcepto\": 1,\r\n  \"fecha\": \"2023-01-01\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/jornada",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"jornada"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ERROR: Horas trabajadas obligatorias en turno extra.",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"idEmpleado\": 1,\r\n  \"idConcepto\": 2,\r\n  \"fecha\": \"2023-01-01\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/jornada",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"jornada"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ERROR: Dia libre no requiere horas trabajadas.",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"idEmpleado\": 1,\r\n  \"idConcepto\": 3,\r\n  \"fecha\": \"2023-01-01\",\r\n  \"horasTrabajadas\": 8\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/jornada",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"jornada"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ERROR: Empleado no encontrado.",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"idEmpleado\": 20,\r\n  \"idConcepto\": 3,\r\n  \"fecha\": \"2023-01-01\",\r\n  \"horasTrabajadas\": 8\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/jornada",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"jornada"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ERROR: Concepto no encontrado.",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"idEmpleado\": 1,\r\n  \"idConcepto\": 20,\r\n  \"fecha\": \"2023-01-01\",\r\n  \"horasTrabajadas\": 8\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/jornada",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"jornada"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ERROR: Rango de horas cargadas.",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"idEmpleado\": 1,\r\n  \"idConcepto\": 1,\r\n  \"fecha\": \"2024-08-05\",\r\n  \"horasTrabajadas\": 10\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/jornada",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"jornada"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Crear jornada laboral día libre.",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"idEmpleado\": 1,\r\n  \"idConcepto\": 3,\r\n  \"fecha\": \"2024-08-05\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/jornada",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"jornada"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ERROR: Cargar otra jornada en día libre.",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"idEmpleado\": 1,\r\n  \"idConcepto\": 1,\r\n  \"fecha\": \"2024-08-05\",\r\n  \"horasTrabajadas\": 6\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/jornada",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"jornada"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Obtener jornadas",
+			"item": [
+				{
+					"name": "Obtener jornadas",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/jornada",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"jornada"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener jornadas \"Fecha Desde\".",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/jornada?fechaDesde=2023-01-01",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"jornada"
+							],
+							"query": [
+								{
+									"key": "fechaDesde",
+									"value": "2023-01-01"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener jornadas \"Fecha Hasta\".",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/jornada?fechaHasta=2023-01-01",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"jornada"
+							],
+							"query": [
+								{
+									"key": "fechaHasta",
+									"value": "2023-01-01"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener jornadas \"Numero Documento\".",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/jornada?nroDocumento=30415654",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"jornada"
+							],
+							"query": [
+								{
+									"key": "nroDocumento",
+									"value": "30415654"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener jornadas Fechas y Documento.",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/jornada?nroDocumento=30415654&fechaDesde=2023-01-01&fechaHasta=2024-01-01",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"jornada"
+							],
+							"query": [
+								{
+									"key": "nroDocumento",
+									"value": "30415654"
+								},
+								{
+									"key": "fechaDesde",
+									"value": "2023-01-01"
+								},
+								{
+									"key": "fechaHasta",
+									"value": "2024-01-01"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ERROR: Empleado no encontrado.",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/jornada?fechaHasta=2024-01-01&fechaDesde=2020-01-01&nroDocumento=111",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"jornada"
+							],
+							"query": [
+								{
+									"key": "fechaHasta",
+									"value": "2024-01-01"
+								},
+								{
+									"key": "fechaDesde",
+									"value": "2020-01-01"
+								},
+								{
+									"key": "nroDocumento",
+									"value": "111"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ERROR: Fecha no valida.",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/jornada?fechaHasta=12&fechaDesde=kkk",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"jornada"
+							],
+							"query": [
+								{
+									"key": "fechaHasta",
+									"value": "12"
+								},
+								{
+									"key": "fechaDesde",
+									"value": "kkk"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ERROR: Fecha desde mayor que fecha hasta.",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/jornada?fechaHasta=2023-01-01&fechaDesde=2024-01-01",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"jornada"
+							],
+							"query": [
+								{
+									"key": "fechaHasta",
+									"value": "2023-01-01"
+								},
+								{
+									"key": "fechaDesde",
+									"value": "2024-01-01"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Eliminar empleado",
+			"item": [
+				{
+					"name": "Eliminar empleado.",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/empleado/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"empleado",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ERROR: Empleado con jornadas asociadas.",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/empleado/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"empleado",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ERROR: Empleado no encontrado.",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/empleado/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"empleado",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

@@ -12,6 +12,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -36,7 +37,7 @@ public class EmpleadoServiceImpl implements IEmpleadoService {
         empleado.setEmail(empleadoDTO.getEmail());
         empleado.setFechaNacimiento(empleadoDTO.getFechaNacimiento());
         empleado.setFechaIngreso(empleadoDTO.getFechaIngreso());
-        empleado.setFechaCreacion(LocalDate.now());
+        empleado.setFechaCreacion(LocalDateTime.now());
 
         Empleado nuevoEmpleado = empleadoRepository.save(empleado);
 
@@ -59,25 +60,23 @@ public class EmpleadoServiceImpl implements IEmpleadoService {
     public EmpleadoDTO actualizarEmpleado(Long empleadoId, EmpleadoDTO empleadoDTO) {
         empleadoValidator.validarActualizarEmpleado(empleadoDTO);
 
-        // Recuperar el empleado existente
         Empleado empleadoExistente = empleadoRepository.findById(empleadoId)
-                .orElseThrow(() -> new BusinessException("Empleado no encontrado con ID: " + empleadoId, HttpStatus.NOT_FOUND));
+                .orElseThrow(() -> new BusinessException("No se encontró el empleado con Id: " + empleadoId, HttpStatus.NOT_FOUND));
 
         if (!empleadoExistente.getNroDocumento().equals(empleadoDTO.getNroDocumento())) {
             boolean existeOtroEmpleado = empleadoRepository.existsByNroDocumento(empleadoDTO.getNroDocumento());
             if (existeOtroEmpleado) {
-                throw new BusinessException("Ya existe un empleado con el número de documento: " + empleadoDTO.getNroDocumento(), HttpStatus.BAD_REQUEST);
+                throw new BusinessException("Ya existe un empleado con el número de documento: " + empleadoDTO.getNroDocumento(), HttpStatus.CONFLICT);
             }
         }
 
         if (!empleadoExistente.getEmail().equals(empleadoDTO.getEmail())) {
             boolean existeOtroEmpleadoConEmail = empleadoRepository.existsByEmail(empleadoDTO.getEmail());
             if (existeOtroEmpleadoConEmail) {
-                throw new BusinessException("Ya existe un empleado con el email: " + empleadoDTO.getEmail(), HttpStatus.BAD_REQUEST);
+                throw new BusinessException("Ya existe un empleado con el email: " + empleadoDTO.getEmail(), HttpStatus.CONFLICT);
             }
         }
 
-        // Actualizar los campos del empleado
         empleadoExistente.setNroDocumento(empleadoDTO.getNroDocumento());
         empleadoExistente.setNombre(empleadoDTO.getNombre());
         empleadoExistente.setApellido(empleadoDTO.getApellido());
@@ -85,7 +84,6 @@ public class EmpleadoServiceImpl implements IEmpleadoService {
         empleadoExistente.setFechaNacimiento(empleadoDTO.getFechaNacimiento());
         empleadoExistente.setFechaIngreso(empleadoDTO.getFechaIngreso());
 
-        // Guardar los cambios
         Empleado empleadoActualizado = empleadoRepository.save(empleadoExistente);
 
         return convertToDTO(empleadoActualizado);
@@ -93,16 +91,13 @@ public class EmpleadoServiceImpl implements IEmpleadoService {
 
     @Override
     public void eliminarEmpleadoPorId(Long empleadoId) {
-        // Verificar si el empleado existe
         var empleado = empleadoRepository.findById(empleadoId)
                 .orElseThrow(() -> new BusinessException("No se encontró el empleado con Id: " + empleadoId, HttpStatus.NOT_FOUND));
 
-        // Verificar si el empleado tiene jornadas laborales asociadas
         if (jornadaLaboralRepository.existsByEmpleadoId(empleadoId)) {
             throw new BusinessException("No es posible eliminar un empleado con jornadas asociadas.", HttpStatus.BAD_REQUEST);
         }
 
-        // Eliminar el empleado
         empleadoRepository.delete(empleado);
     }
 
@@ -115,7 +110,7 @@ public class EmpleadoServiceImpl implements IEmpleadoService {
         dto.setEmail(empleado.getEmail());
         dto.setFechaNacimiento(empleado.getFechaNacimiento());
         dto.setFechaIngreso(empleado.getFechaIngreso());
-        dto.setFechaCreacion(empleado.getFechaCreacion());
+        dto.setFechaCreacion(empleado.getFechaCreacion() != null ? empleado.getFechaCreacion().toLocalDate() : null);
 
         return dto;
     }

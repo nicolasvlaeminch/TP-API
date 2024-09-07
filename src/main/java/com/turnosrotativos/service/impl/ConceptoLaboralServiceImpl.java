@@ -30,7 +30,6 @@ public class ConceptoLaboralServiceImpl implements IConceptoLaboralService {
         } else {
             conceptos = conceptoLaboralRepository.findAll();
         }
-
         // Mapear la lista de ConceptoLaboral a ConceptoLaboralResponse
         return conceptos.stream()
                 .map(this::convertirAConceptoLaboralResponse)

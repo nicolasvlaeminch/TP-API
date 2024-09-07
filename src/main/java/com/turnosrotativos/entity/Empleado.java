@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Getter
 @Setter
@@ -36,5 +37,12 @@ public class Empleado {
     private LocalDate fechaIngreso;
 
     @Column(name = "fecha_creacion", nullable = false, updatable = false)
-    private LocalDate fechaCreacion;
+    private LocalDateTime fechaCreacion;
+
+    @PrePersist
+    public void prePersist() {
+        if (fechaCreacion == null) {
+            fechaCreacion = LocalDateTime.now();
+        }
+    }
 }

@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.method.annotation.MethodArgumentTypeMismatchException;
 
+import java.time.LocalDate;
 import java.util.Map;
 import java.util.stream.Collectors;
 
@@ -29,16 +30,8 @@ public class GlobalExceptionHandler {
                 .message(errorMessage)
                 .build();
 
-        // Devuelve la respuesta con un código de estado 400 (Bad Request)
         return new ResponseEntity<>(error, HttpStatus.BAD_REQUEST);
     }
-
-//    @ExceptionHandler(MethodArgumentTypeMismatchException.class)
-//    public ResponseEntity<Object> handleMethodArgumentTypeMismatchException(MethodArgumentTypeMismatchException ex) {
-//        ErrorDTO error = ErrorDTO.builder().message(ex.getMessage()).build();
-//
-//        return new ResponseEntity<>(error, HttpStatus.BAD_REQUEST);
-//    }
 
     @ExceptionHandler(value = BusinessException.class)
     public ResponseEntity<ErrorDTO> businessExceptionHandler(BusinessException ex) {
