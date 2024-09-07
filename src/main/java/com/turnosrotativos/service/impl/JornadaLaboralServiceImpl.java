@@ -5,16 +5,21 @@ import com.turnosrotativos.dto.JornadaLaboralResponse;
 import com.turnosrotativos.entity.ConceptoLaboral;
 import com.turnosrotativos.entity.Empleado;
 import com.turnosrotativos.entity.JornadaLaboral;
-import com.turnosrotativos.exceptions.BusinessException;
 import com.turnosrotativos.repository.IJornadaLaboralRepository;
 import com.turnosrotativos.service.IJornadaLaboralService;
 import com.turnosrotativos.util.JornadaLaboralHelperService;
 import com.turnosrotativos.validator.JornadaLaboralValidator;
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.PersistenceContext;
+import jakarta.persistence.criteria.CriteriaBuilder;
+import jakarta.persistence.criteria.CriteriaQuery;
+import jakarta.persistence.criteria.Predicate;
+import jakarta.persistence.criteria.Root;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -28,6 +33,9 @@ public class JornadaLaboralServiceImpl implements IJornadaLaboralService {
 
     @Autowired
     private JornadaLaboralHelperService jornadaLaboralHelperService;
+
+    @PersistenceContext
+    private EntityManager entityManager;
 
     @Override
     public JornadaLaboralResponse crearJornadaLaboral(JornadaLaboralDTO jornadaDTO) {
@@ -55,29 +63,29 @@ public class JornadaLaboralServiceImpl implements IJornadaLaboralService {
         LocalDate fechaHasta = (fechaHastaStr != null) ? LocalDate.parse(fechaHastaStr) : null;
 
         jornadaLaboralValidator.validarParametros(fechaDesde, fechaHasta);
-        List<JornadaLaboral> jornadas;
+
+        CriteriaBuilder cb = entityManager.getCriteriaBuilder();
+        CriteriaQuery<JornadaLaboral> cq = cb.createQuery(JornadaLaboral.class);
+        Root<JornadaLaboral> jornada = cq.from(JornadaLaboral.class);
+
+        List<Predicate> predicates = new ArrayList<>();
 
         if (nroDocumento != null) {
             Long empleadoId = jornadaLaboralHelperService.getEmpleadoByNroDocumento(nroDocumento).getId();
-
-            if (fechaDesde != null && fechaHasta != null) {
-                jornadas = jornadaLaboralRepository.findByEmpleadoIdAndFechaBetween(empleadoId, fechaDesde, fechaHasta);
-            } else if (fechaDesde != null) {
-                jornadas = jornadaLaboralRepository.findByEmpleadoIdAndFechaGreaterThanEqual(empleadoId, fechaDesde);
-            } else if (fechaHasta != null) {
-                jornadas = jornadaLaboralRepository.findByEmpleadoIdAndFechaLessThanEqual(empleadoId, fechaHasta);
-            } else {
-                jornadas = jornadaLaboralRepository.findByEmpleadoId(empleadoId);
-            }
-        } else if (fechaDesde != null && fechaHasta != null) {
-            jornadas = jornadaLaboralRepository.findByFechaBetween(fechaDesde, fechaHasta);
-        } else if (fechaDesde != null) {
-            jornadas = jornadaLaboralRepository.findByFechaGreaterThanEqual(fechaDesde);
-        } else if (fechaHasta != null) {
-            jornadas = jornadaLaboralRepository.findByFechaLessThanEqual(fechaHasta);
-        } else {
-            jornadas = jornadaLaboralRepository.findAll();
+            predicates.add(cb.equal(jornada.get("empleado").get("id"), empleadoId));
         }
+
+        if (fechaDesde != null) {
+            predicates.add(cb.greaterThanOrEqualTo(jornada.get("fecha"), fechaDesde));
+        }
+
+        if (fechaHasta != null) {
+            predicates.add(cb.lessThanOrEqualTo(jornada.get("fecha"), fechaHasta));
+        }
+
+        cq.where(predicates.toArray(new Predicate[0]));
+        List<JornadaLaboral> jornadas = entityManager.createQuery(cq).getResultList();
+
         return jornadas.stream().map(this::convertToResponseDTO).collect(Collectors.toList());
     }
 

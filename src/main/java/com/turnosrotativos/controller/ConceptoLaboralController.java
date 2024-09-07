@@ -1,7 +1,6 @@
 package com.turnosrotativos.controller;
 
 import com.turnosrotativos.dto.ConceptoLaboralResponse;
-import com.turnosrotativos.entity.ConceptoLaboral;
 import com.turnosrotativos.service.IConceptoLaboralService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;

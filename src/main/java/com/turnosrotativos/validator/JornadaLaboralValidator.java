@@ -5,8 +5,6 @@ import com.turnosrotativos.entity.ConceptoLaboral;
 import com.turnosrotativos.entity.Empleado;
 import com.turnosrotativos.entity.JornadaLaboral;
 import com.turnosrotativos.exceptions.BusinessException;
-import com.turnosrotativos.repository.IConceptoLaboralRepository;
-import com.turnosrotativos.repository.IEmpleadoRepository;
 import com.turnosrotativos.repository.IJornadaLaboralRepository;
 import com.turnosrotativos.util.JornadaLaboralHelperService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,7 +15,6 @@ import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.Objects;
-import java.util.stream.Collectors;
 
 @Component
 public class JornadaLaboralValidator {

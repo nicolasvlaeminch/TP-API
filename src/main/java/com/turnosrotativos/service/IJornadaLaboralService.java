@@ -3,7 +3,6 @@ package com.turnosrotativos.service;
 import com.turnosrotativos.dto.JornadaLaboralDTO;
 import com.turnosrotativos.dto.JornadaLaboralResponse;
 
-import java.time.LocalDate;
 import java.util.List;
 
 public interface IJornadaLaboralService {

@@ -1,7 +1,6 @@
 package com.turnosrotativos.service;
 
 import com.turnosrotativos.dto.ConceptoLaboralResponse;
-import com.turnosrotativos.entity.ConceptoLaboral;
 
 import java.util.List;
 
