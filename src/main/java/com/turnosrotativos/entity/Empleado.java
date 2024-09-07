@@ -37,5 +37,4 @@ public class Empleado {
 
     @Column(name = "fecha_creacion", nullable = false, updatable = false)
     private LocalDate fechaCreacion;
-
 }

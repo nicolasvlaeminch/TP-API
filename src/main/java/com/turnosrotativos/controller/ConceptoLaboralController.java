@@ -1,5 +1,6 @@
 package com.turnosrotativos.controller;
 
+import com.turnosrotativos.dto.ConceptoLaboralResponse;
 import com.turnosrotativos.entity.ConceptoLaboral;
 import com.turnosrotativos.service.IConceptoLaboralService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,11 +19,9 @@ public class ConceptoLaboralController {
     private IConceptoLaboralService conceptoLaboralService;
 
     @GetMapping
-    public ResponseEntity<List<ConceptoLaboral>> obtenerConceptosLaborales(
+    public ResponseEntity<List<ConceptoLaboralResponse>> obtenerConceptosLaborales(
             @RequestParam(required = false) Long id, @RequestParam(required = false) String nombre) {
-
-        List<ConceptoLaboral> conceptos = conceptoLaboralService.obtenerConceptosLaborales(id, nombre);
-
+        List<ConceptoLaboralResponse> conceptos = conceptoLaboralService.obtenerConceptosLaborales(id, nombre);
         return ResponseEntity.ok(conceptos);
     }
 }

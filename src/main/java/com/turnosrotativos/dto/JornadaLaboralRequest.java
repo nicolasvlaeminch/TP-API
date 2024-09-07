@@ -1,11 +1,13 @@
 package com.turnosrotativos.dto;
 
+import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Positive;
 import lombok.Data;
 
 @Data
 public class JornadaLaboralRequest {
+    
     @Positive(message = "El campo ‘nroDocumento’ solo puede contener números enteros positivos.")
     private String nroDocumento;
 

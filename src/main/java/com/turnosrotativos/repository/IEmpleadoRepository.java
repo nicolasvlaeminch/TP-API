@@ -9,7 +9,10 @@ import java.util.Optional;
 @Repository
 public interface IEmpleadoRepository extends JpaRepository<Empleado, Long> {
     boolean existsByNroDocumento(Long nroDocumento);
+
     boolean existsByEmail(String email);
+
     boolean existsById(Long id);
+
     Optional<Empleado> findByNroDocumento(Long nroDocumento);
 }

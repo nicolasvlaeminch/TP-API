@@ -18,7 +18,6 @@ public class EmpleadoController {
 
     @PostMapping
     public ResponseEntity<EmpleadoDTO> registrarEmpleado(@Valid @RequestBody EmpleadoDTO empleadoDTO) {
-
         EmpleadoDTO nuevoEmpleadoDTO = empleadoService.registrarEmpleado(empleadoDTO);
         return ResponseEntity.created(URI.create("/empleado/" + nuevoEmpleadoDTO.getId())).body(nuevoEmpleadoDTO);
     }
@@ -32,7 +31,6 @@ public class EmpleadoController {
     @GetMapping("/{empleadoId}")
     public ResponseEntity<EmpleadoDTO> obtenerEmpleadoPorId(@PathVariable Long empleadoId) {
         EmpleadoDTO empleadoDTO = empleadoService.obtenerEmpleadoPorId(empleadoId);
-
         return ResponseEntity.ok(empleadoDTO);
     }
 
@@ -40,7 +38,6 @@ public class EmpleadoController {
     public ResponseEntity<EmpleadoDTO> actualizarEmpleado(
             @PathVariable Long empleadoId,
             @Valid @RequestBody EmpleadoDTO empleadoDTO) {
-
         EmpleadoDTO empleadoActualizadoDTO = empleadoService.actualizarEmpleado(empleadoId, empleadoDTO);
         return ResponseEntity.ok(empleadoActualizadoDTO);
     }
@@ -50,5 +47,4 @@ public class EmpleadoController {
         empleadoService.eliminarEmpleadoPorId(empleadoId);
         return ResponseEntity.noContent().build();  // Retorna 204 NO CONTENT si se elimina correctamente
     }
-
 }

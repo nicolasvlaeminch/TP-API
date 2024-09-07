@@ -50,9 +50,8 @@ public class JornadaLaboralServiceImpl implements IJornadaLaboralService {
 
     @Override
     public List<JornadaLaboralResponse> obtenerJornadasLaborales(Long nroDocumento, LocalDate fechaDesde, LocalDate fechaHasta) {
-        List<JornadaLaboral> jornadas;
-
         jornadaLaboralValidator.validarParametros(fechaDesde, fechaHasta);
+        List<JornadaLaboral> jornadas;
 
         // Si se proporciona un número de documento
         if (nroDocumento != null) {
