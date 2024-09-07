@@ -72,7 +72,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"nroDocumento\": 41555224,\r\n  \"nombre\": \"Maria Elena\",\r\n  \"apellido\": \"Martinez\",\r\n  \"email\": \"marimartinez20@gmail.com\",\r\n  \"fechaNacimiento\": \"1998-11-20\",\r\n  \"fechaIngreso\": \"2024-06-04\"\r\n}\r\n",
+							"raw": "{\r\n  \"nroDocumento\": 41555224,\r\n  \"nombre\": \"Maria\",\r\n  \"apellido\": \"Martinez\",\r\n  \"email\": \"marimartinez20@gmail.com\",\r\n  \"fechaNacimiento\": \"1998-11-20\",\r\n  \"fechaIngreso\": \"2024-06-04\"\r\n}\r\n",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -598,7 +598,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8080/empleado/2",
+							"raw": "http://localhost:8080/empleado/20",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -606,7 +606,7 @@
 							"port": "8080",
 							"path": [
 								"empleado",
-								"2"
+								"20"
 							]
 						}
 					},
@@ -1787,7 +1787,7 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/empleado/2",
+							"raw": "http://localhost:8080/empleado/20",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -1795,7 +1795,7 @@
 							"port": "8080",
 							"path": [
 								"empleado",
-								"2"
+								"20"
 							]
 						}
 					},

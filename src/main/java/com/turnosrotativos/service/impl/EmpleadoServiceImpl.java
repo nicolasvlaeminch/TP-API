@@ -23,9 +23,6 @@ public class EmpleadoServiceImpl implements IEmpleadoService {
     @Autowired
     private EmpleadoValidator empleadoValidator;
 
-    @Autowired
-    private IJornadaLaboralRepository jornadaLaboralRepository;
-
     public EmpleadoDTO registrarEmpleado(EmpleadoDTO empleadoDTO) {
         empleadoValidator.validarRegistrarEmpleado(empleadoDTO);
 
@@ -57,24 +54,9 @@ public class EmpleadoServiceImpl implements IEmpleadoService {
 
     @Override
     public EmpleadoDTO actualizarEmpleado(Long empleadoId, EmpleadoDTO empleadoDTO) {
-        empleadoValidator.validarActualizarEmpleado(empleadoDTO);
+        Empleado empleadoExistente = empleadoValidator.buscarEmpleadoPorId(empleadoId);
 
-        Empleado empleadoExistente = empleadoRepository.findById(empleadoId)
-                .orElseThrow(() -> new BusinessException("No se encontró el empleado con Id: " + empleadoId, HttpStatus.NOT_FOUND));
-
-        if (!empleadoExistente.getNroDocumento().equals(empleadoDTO.getNroDocumento())) {
-            boolean existeOtroEmpleado = empleadoRepository.existsByNroDocumento(empleadoDTO.getNroDocumento());
-            if (existeOtroEmpleado) {
-                throw new BusinessException("Ya existe un empleado con el número de documento: " + empleadoDTO.getNroDocumento(), HttpStatus.CONFLICT);
-            }
-        }
-
-        if (!empleadoExistente.getEmail().equals(empleadoDTO.getEmail())) {
-            boolean existeOtroEmpleadoConEmail = empleadoRepository.existsByEmail(empleadoDTO.getEmail());
-            if (existeOtroEmpleadoConEmail) {
-                throw new BusinessException("Ya existe un empleado con el email: " + empleadoDTO.getEmail(), HttpStatus.CONFLICT);
-            }
-        }
+        empleadoValidator.validarActualizarEmpleado(empleadoDTO, empleadoExistente);
 
         empleadoExistente.setNroDocumento(empleadoDTO.getNroDocumento());
         empleadoExistente.setNombre(empleadoDTO.getNombre());
@@ -90,12 +72,9 @@ public class EmpleadoServiceImpl implements IEmpleadoService {
 
     @Override
     public void eliminarEmpleadoPorId(Long empleadoId) {
-        var empleado = empleadoRepository.findById(empleadoId)
-                .orElseThrow(() -> new BusinessException("No se encontró el empleado con Id: " + empleadoId, HttpStatus.NOT_FOUND));
+        Empleado empleado = empleadoValidator.buscarEmpleadoPorId(empleadoId);
 
-        if (jornadaLaboralRepository.existsByEmpleadoId(empleadoId)) {
-            throw new BusinessException("No es posible eliminar un empleado con jornadas asociadas.", HttpStatus.BAD_REQUEST);
-        }
+        empleadoValidator.validarJornadasAsociadas(empleadoId);
 
         empleadoRepository.delete(empleado);
     }
